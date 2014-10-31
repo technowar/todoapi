@@ -7,15 +7,24 @@ var Good = require('good');
 exports.options = {
 	'opsInterval' : 60000,
 	'reporters' : [{
-		'reporter' : Good.GoodConsole
+		'reporter' : Good.GoodConsole,
+		'args' : [{
+			'events' : {
+				'requests' : '*',
+				'log' : '*',
+				'error' : '*'
+			}
+		}]
 	}, {
 		'reporter' : Good.GoodFile,
-		'args' : ['./logs/logs/serverlogs', {
+		'args' : ['./logs/logs/logs', {
 			'events' : {
-				'ops' : ['request', 'log', 'error', 'ops']
+				'requests' : '*',
+				'log' : '*',
+				'error' : '*'
 			},
 
-			'maxFileSize' : 1048576,
+			'maxFileSize' : 1024 * 1024,
 			'format' : 'DD/MMM/YYYY:H:mm:ss Z'
 		}]
 	}]

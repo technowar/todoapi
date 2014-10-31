@@ -21,7 +21,7 @@ server.pack.register({
 }, function (error) {
 	if (!error) {
 		server.start(function () {
-			console.log("The server has started on port: " + server.info.port);
+			server.log('info', 'Server running at: ' + server.info.uri);
 		});
 	}
 });
