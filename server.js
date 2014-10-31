@@ -2,7 +2,7 @@
 
 var Hapi = require('hapi');
 var Good = require('good');
-var Logs = require('./logs/logs');
+var Logs = require('./log/logs');
 
 var server = new Hapi.Server(3100);
 

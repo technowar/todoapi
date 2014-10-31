@@ -17,7 +17,7 @@ exports.options = {
 		}]
 	}, {
 		'reporter' : Good.GoodFile,
-		'args' : ['./logs/logs/logs', {
+		'args' : ['./log/logs/logs', {
 			'events' : {
 				'requests' : '*',
 				'log' : '*',
