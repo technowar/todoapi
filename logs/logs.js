@@ -10,10 +10,13 @@ exports.options = {
 		'reporter' : Good.GoodConsole
 	}, {
 		'reporter' : Good.GoodFile,
-		'args' : ['server.txt', {
+		'args' : ['./logs/logs/logs', {
 			'events' : {
-				'ops' : '*'
-			}
+				'ops' : ['request', 'log', 'error', 'ops']
+			},
+
+			'maxFileSize' : 1048576,
+			'format' : 'DD/MMM/YYYY:H:mm:ss Z'
 		}]
 	}]
 };
