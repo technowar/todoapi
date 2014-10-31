@@ -10,6 +10,7 @@
   "license": "MIT",
 	"dependencies": {
 		"hapi": "*",
-		"good": "*"
+		"good": "*",
+		"lab": "*"
 	}
 }
