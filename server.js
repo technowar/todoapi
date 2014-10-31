@@ -7,16 +7,16 @@ var Logs = require('./logs/logs');
 var server = new Hapi.Server(3100);
 
 server.route({
-	method : 'GET',
-	path   : '/',
+	'method' : 'GET',
+	'path' : '/',
 
-	handler: function (request, reply) {
+	'handler' : function (request, reply) {
 		reply('Hello, world!');
 	}
 });
 
 server.pack.register({
-	'plugin'  : Good,
+	'plugin' : Good,
 	'options' : Logs.options
 }, function (error) {
 	if (!error) {
