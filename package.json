@@ -9,6 +9,7 @@
   "author": "Johmel Rey Pintor",
   "license": "MIT",
 	"dependencies": {
-		"hapi": "*"
+		"hapi": "*",
+		"good": "*"
 	}
 }
