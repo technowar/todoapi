@@ -1,10 +1,10 @@
 'use strict';
 
-var Hapi   = require('hapi');
-var Good   = require('good');
-var server = new Hapi.Server('127.0.0.1', 3100);
-
+var Hapi = require('hapi');
+var Good = require('good');
 var Logs = require('./logs/logs');
+
+var server = new Hapi.Server('127.0.0.1', 3100);
 
 server.pack.register({
 	'plugin'  : Good,

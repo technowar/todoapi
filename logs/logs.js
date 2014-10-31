@@ -10,7 +10,7 @@ exports.options = {
 		'reporter' : Good.GoodConsole
 	}, {
 		'reporter' : Good.GoodFile,
-		'args' : ['./logs/logs/logs', {
+		'args' : ['./logs/logs/serverlogs', {
 			'events' : {
 				'ops' : ['request', 'log', 'error', 'ops']
 			},
