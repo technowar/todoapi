@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "make test"
+    "test": "./node_modules/lab/bin/lab -t 100"
   },
   "author": "Johmel Rey Pintor",
   "license": "MIT",

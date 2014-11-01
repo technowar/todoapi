@@ -25,3 +25,5 @@ server.pack.register({
 		});
 	}
 });
+
+module.exports = server;
