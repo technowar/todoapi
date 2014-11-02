@@ -2,24 +2,30 @@
 
 var Good = require('good');
 
-//Logs `ops`, `request`, `log`, and `error` with `60 seconds` interval
+//Logs `request`, `log`, and `error` with `60 seconds` opsInterval
 
-exports.options = {
+module.exports = {
 	'opsInterval' : 60000,
 	'reporters' : [{
 		'reporter' : Good.GoodConsole,
 		'args' : [{
 			'events' : {
-				'requests' : '*',
+				'request' : '*',
 				'log' : '*',
 				'error' : '*'
 			}
 		}]
+
+		/*****************************
+		 * GoodFile, uncomment later *
+		 *****************************/
+
+/******************************************
 	}, {
 		'reporter' : Good.GoodFile,
 		'args' : ['./log/logs/logs', {
 			'events' : {
-				'requests' : '*',
+				'request' : '*',
 				'log' : '*',
 				'error' : '*'
 			},
@@ -27,5 +33,7 @@ exports.options = {
 			'maxFileSize' : 1024 * 1024,
 			'format' : 'DD/MMM/YYYY:H:mm:ss Z'
 		}]
+******************************************/
+
 	}]
 };

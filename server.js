@@ -9,7 +9,6 @@ var server = new Hapi.Server(3100);
 server.route({
 	'method' : 'GET',
 	'path' : '/',
-
 	'handler' : function (request, reply) {
 		reply('Hello, world!');
 	}
@@ -17,7 +16,7 @@ server.route({
 
 server.pack.register({
 	'plugin' : Good,
-	'options' : Logs.options
+	'options' : Logs
 }, function (error) {
 	if (!error) {
 		server.start(function () {
