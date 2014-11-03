@@ -1,3 +1,3 @@
 'use strict';
 
-require('.models/tasks');
+require('./models/tasks');

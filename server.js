@@ -3,10 +3,11 @@
 var Hapi = require('hapi');
 var Mongoose = require('mongoose');
 
-var MongoUrl = 'mongodb://localhost/tasks';
 var Server = new Hapi.Server(3100);
 
-Mongoose.connect(MongoUrl);
+Mongoose.connect('mongodb://localhost/tasks');
+
+require('./db');
 
 Server.pack.register([{
 	'plugin' : require('good'),
