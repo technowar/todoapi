@@ -26,7 +26,7 @@ Lab.describe('`Routes` Test', function () {
 		var options = {
 			'method' : '*',
 			'url' : '/{p*}'
-		}
+		};
 
 		Server.inject(options, function (response) {
 			Code.expect(response.statusCode).to.equal(404);
@@ -46,7 +46,7 @@ Lab.describe('`Routes` Test', function () {
 				'createdAt' : new Date(),
 				'updatedAt' : new Date()
 			}
-		}
+		};
 
 		Server.inject(options, function (response) {
 			Code.expect(response.statusCode).to.equal(200);
@@ -63,7 +63,7 @@ Lab.describe('`Routes` Test', function () {
 		var options = {
 			'method' : 'GET',
 			'url' : '/v1/tasks'
-		}
+		};
 
 		Server.inject(options, function (response) {
 			Code.expect(response.statusCode).to.equal(200);

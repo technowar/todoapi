@@ -8,7 +8,7 @@ exports.register = function (plugin, options, next) {
 	plugin.route(Task);
 
 	next();
-}
+};
 
 exports.register.attributes = {
 	name : 'api',
