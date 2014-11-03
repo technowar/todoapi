@@ -21,7 +21,7 @@ Lab.describe('`Hello, world!` Test', function () {
 	});
 });
 
-Lab.describe('`Page not found` Test', function () {
+Lab.describe('`Routes` Test', function () {
 	Lab.it('should return `Page not found` message', function (done) {
 		var options = {
 			'method' : '*',
@@ -35,9 +35,7 @@ Lab.describe('`Page not found` Test', function () {
 			done();
 		});
 	});
-});
 
-Lab.describe('`Tasks` Test', function () {
 	Lab.it('should return all `Tasks`', function (done) {
 		var options = {
 			'method' : 'GET',

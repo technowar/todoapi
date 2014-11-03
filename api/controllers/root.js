@@ -3,9 +3,14 @@
 module.exports = [{
 	'method' : '*',
 	'path' : '/{p*}',
-	'handler' : function (request, reply) {
-		reply('Page not found')
-			.code(404);
+	'config' : {
+		'handler' : function (request, reply) {
+			reply('Page not found')
+				.code(404);
+		},
+		'plugins' : {
+			'lout' : false
+		}
 	}
 }, {
 	'method' : 'GET',
