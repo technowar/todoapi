@@ -67,6 +67,7 @@ Lab.describe('`Routes` Test', function () {
 
 		Server.inject(options, function (response) {
 			Code.expect(response.statusCode).to.equal(200);
+			Code.expect(response.result).to.be.an.array();
 
 			done();
 		});
