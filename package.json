@@ -12,7 +12,8 @@
 		"hapi": "*",
 		"good": "*",
 		"joi": "*",
-		"lout": "*"
+		"lout": "*",
+		"mongoose": "3.8.18"
 	},
 	"devDependencies": {
 		"code": "*",
