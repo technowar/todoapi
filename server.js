@@ -2,9 +2,9 @@
 
 var Hapi = require('hapi');
 
-var server = new Hapi.Server(3100);
+var Server = new Hapi.Server(3100);
 
-server.pack.register([{
+Server.pack.register([{
 	'plugin' : require('good'),
 	'options' : require('./log/').options
 }, {
@@ -13,10 +13,10 @@ server.pack.register([{
 	'plugin' : require('./api')
 }], function (error) {
 	if (!error) {
-		server.start(function () {
-			server.log('info', 'Server running at: ' + server.info.uri);
+		Server.start(function () {
+			Server.log('info', 'Server running at: ' + Server.info.uri);
 		});
 	}
 });
 
-module.exports = server;
+module.exports = Server;
