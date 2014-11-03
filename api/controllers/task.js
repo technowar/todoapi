@@ -2,7 +2,7 @@
 
 module.exports = [{
 	'method' : 'GET',
-	'path' : '/tasks',
+	'path' : '/v1/tasks',
 	'handler' : function (request, reply) {
 		reply('Tasks')
 			.code(200);

@@ -8,13 +8,8 @@ var Server = new Hapi.Server();
 
 Lab.describe('`Hapi.Pack` Test', function () {
 	Lab.it('should have `Good` plugin', function (done) {
-		var options = {
-			'opsInterval' : 60000
-		};
-
 		Server.pack.register({
-			'plugin' : require('good'),
-			'options' : options
+			'plugin' : require('good')
 		}, function (error) {
 			Code.expect(error).to.not.exist;
 

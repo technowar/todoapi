@@ -39,7 +39,7 @@ Lab.describe('`Routes` Test', function () {
 	Lab.it('should return all `Tasks`', function (done) {
 		var options = {
 			'method' : 'GET',
-			'url' : '/tasks'
+			'url' : '/v1/tasks'
 		}
 
 		Server.inject(options, function (response) {
