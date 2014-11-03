@@ -10,7 +10,9 @@
   "license": "MIT",
 	"dependencies": {
 		"hapi": "*",
-		"good": "*"
+		"good": "*",
+		"joi": "*",
+		"lout": "*"
 	},
 	"devDependencies": {
 		"code": "*",
