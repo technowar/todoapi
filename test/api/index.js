@@ -25,8 +25,9 @@ Lab.describe('`Hello, world!` Test', function () {
 });
 
 Lab.describe('`Routes` Test', function () {
+	var id = Mongoose.Types.ObjectId('4edd40c86762e0fb12000003');
+
 	Lab.before(function (done) {
-		var id = Mongoose.Types.ObjectId('4edd40c86762e0fb12000003');
 		var newTask = new Task({
 			'_id' : id,
 			'title' : 'Eat banana',
@@ -74,6 +75,62 @@ Lab.describe('`Routes` Test', function () {
 			Code.expect(response.statusCode).to.equal(200);
 			Code.expect(response.result.title).to.be.a.string().and.equal(options.payload.title);
 			Code.expect(response.result.isCompleted).to.be.a.boolean().and.equal(options.payload.isCompleted);
+			Code.expect(response.result.createdAt).to.be.a.date();
+			Code.expect(response.result.updatedAt).to.be.a.date();
+
+			done();
+		});
+	});
+
+	Lab.it('should modify a single `Task`', function (done) {
+		var options = {
+			'method' : 'PUT',
+			'url' : '/v1/task/' + id,
+			'payload' : {
+				'title' : 'Eat banana',
+				'isCompleted' : true,
+				'updatedAt' : new Date()
+			}
+		};
+
+		Server.inject(options, function (response) {
+			Code.expect(response.statusCode).to.equal(200);
+			Code.expect(response.result.title).to.be.a.string().and.equal(options.payload.title);
+			Code.expect(response.result.isCompleted).to.be.a.boolean().and.equal(options.payload.isCompleted);
+			Code.expect(response.result.updatedAt).to.be.a.date();
+
+			done();
+		});
+	});
+
+	Lab.it('should retrieve a single `Task`', function (done) {
+		var options = {
+			'method' : 'GET',
+			'url' : '/v1/task/' + id
+		};
+
+		Server.inject(options, function (response) {
+			Code.expect(response.statusCode).to.equal(200);
+			Code.expect(response.result).to.be.an.array();
+			Code.expect(response.result[0].title).to.be.a.string();
+			Code.expect(response.result[0].isCompleted).to.be.a.boolean();
+			Code.expect(response.result[0].createdAt).to.be.a.date();
+			Code.expect(response.result[0].updatedAt).to.be.a.date();
+
+			done();
+		});
+	});
+
+	Lab.it('should delete a single `Task`', function (done) {
+		var options = {
+			'method' : 'DELETE',
+			'url' : '/v1/task/' + id
+		};
+
+		Server.inject(options, function (response) {
+			Code.expect(response.statusCode).to.equal(200);
+			Code.expect(response.result.title).to.be.a.string();
+			Code.expect(response.result.isCompleted).to.be.a.boolean();
 			Code.expect(response.result.createdAt).to.be.a.date();
 			Code.expect(response.result.updatedAt).to.be.a.date();
 
