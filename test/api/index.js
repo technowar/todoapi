@@ -1,9 +1,12 @@
 'use strict';
 
+var Server = require('../../server');
+
 var Lab = exports.lab = require('lab').script();
 var Code = require('code');
+var Mongoose = require('mongoose');
 
-var Server = require('../../server');
+var Task = Mongoose.model('Task');
 
 Lab.describe('`Hello, world!` Test', function () {
 	Lab.it('should return `Hello, world!`', function (done) {
@@ -22,6 +25,25 @@ Lab.describe('`Hello, world!` Test', function () {
 });
 
 Lab.describe('`Routes` Test', function () {
+	Lab.before(function (done) {
+		var id = Mongoose.Types.ObjectId('4edd40c86762e0fb12000003');
+		var newTask = new Task({
+			'_id' : id,
+			'title' : 'Eat banana',
+			'isCompleted' : false,
+			'createdAt' : new Date(),
+			'updatedAt' : new Date()
+		});
+
+		newTask.save(function (error) {
+			if (error) {
+				throw new Error(error);
+			}
+		});
+
+		done();
+	});
+
 	Lab.it('should return `Page not found` message', function (done) {
 		var options = {
 			'method' : '*',
@@ -36,12 +58,12 @@ Lab.describe('`Routes` Test', function () {
 		});
 	});
 
-	Lab.it('should save a single `Task`', function (done) {
+	Lab.it('should add a single `Task`', function (done) {
 		var options = {
 			'method' : 'POST',
 			'url' : '/v1/tasks',
 			'payload' : {
-				'title' : 'Eat banana',
+				'title' : 'Take medicine',
 				'isCompleted' : false,
 				'createdAt' : new Date(),
 				'updatedAt' : new Date()
@@ -71,5 +93,15 @@ Lab.describe('`Routes` Test', function () {
 
 			done();
 		});
+	});
+
+	Lab.after(function (done) {
+		Mongoose.connection.collections['tasks'].drop(function (error) {
+			if (error) {
+				throw new Error(error);
+			}
+		});
+
+		done();
 	});
 });
