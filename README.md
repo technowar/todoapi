@@ -17,9 +17,10 @@ RESTful API using [Hapi](http://hapijs.com), logs using [Good](https://github.co
 ## Todo
 1. ~~Server~~
 2. ~~Logs~~
-3. Tests
+3. ~~Tests~~
 4. ~~Database~~
 5. ~~API Methods~~
+6. Front-end
 
 ## Others
 I used [Lout](https://github.com/hapijs/lout) to generate documentations.
