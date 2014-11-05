@@ -11,7 +11,7 @@ require('./db');
 
 Server.pack.register([{
 	'plugin' : require('good'),
-	'options' : require('./log/').options
+	'options' : require('./log/')
 }, {
 	'plugin' : require('lout'),
 }, {
