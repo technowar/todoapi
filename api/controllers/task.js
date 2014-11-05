@@ -7,7 +7,7 @@ var Task = Mongoose.model('Task');
 
 module.exports = [{
 	'method' : 'POST',
-	'path' : '/v1/tasks',
+	'path' : '/v1/task',
 	'config' : {
 		'handler' : function (request, reply) {
 			var newTask = new Task({

@@ -62,7 +62,7 @@ Lab.describe('`Routes` Test', function () {
 	Lab.it('should add a single `Task`', function (done) {
 		var options = {
 			'method' : 'POST',
-			'url' : '/v1/tasks',
+			'url' : '/v1/task',
 			'payload' : {
 				'title' : 'Take medicine',
 				'isCompleted' : false,

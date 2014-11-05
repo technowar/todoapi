@@ -2,7 +2,7 @@
 
 var Mongoose = require('mongoose');
 
-var Task = {
+var TaskSchema = new Mongoose.Schema({
 	'title' : {
 		'type' : String
 	},
@@ -15,8 +15,6 @@ var Task = {
 	'updatedAt' : {
 		'type' : Date
 	}
-};
-
-var TaskSchema = new Mongoose.Schema(Task);
+});
 
 Mongoose.model('Task', TaskSchema);

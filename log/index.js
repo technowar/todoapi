@@ -6,6 +6,9 @@ var Good = require('good');
 
 module.exports = {
 	'opsInterval' : 60000,
+	'logRequestHeaders' : true,
+	'logRequestPayload' : true,
+	'logResponsePayload' : true,
 	'reporters' : [{
 		'reporter' : Good.GoodConsole,
 		'args' : [{
@@ -29,11 +32,10 @@ module.exports = {
 				'log' : '*',
 				'error' : '*'
 			},
-
 			'maxFileSize' : 1024 * 1024,
 			'format' : 'DD/MMM/YYYY:H:mm:ss Z'
 		}]
 ******************************************/
 
-	}]
+	}],
 };

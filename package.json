@@ -10,9 +10,9 @@
   "license": "MIT",
 	"dependencies": {
 		"hapi": "*",
-		"good": "*",
 		"joi": "*",
 		"lout": "*",
+		"good": "3.1.1",
 		"mongoose": "3.8.18"
 	},
 	"devDependencies": {
