@@ -3,7 +3,9 @@
 var Hapi = require('hapi');
 var Mongoose = require('mongoose');
 
-var Server = new Hapi.Server(3100);
+var Server = new Hapi.Server(3100, {
+	'cors' : true
+});
 
 Mongoose.connect('mongodb://localhost/tasks');
 
