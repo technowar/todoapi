@@ -12,7 +12,7 @@ module.exports = [{
 		'handler' : function (request, reply) {
 			var newTask = new Task({
 				'title' : request.payload.title,
-				'isCompleted' : request.payload.isCompleted,
+				'isCompleted' : false,
 				'createdAt' : new Date(),
 				'updatedAt' : new Date()
 			});
@@ -27,9 +27,9 @@ module.exports = [{
 		'validate' : {
 			'payload' : {
 				'title' : Joi.string().required(),
-				'isCompleted' : Joi.boolean().required(),
-				'createdAt' : Joi.allow().required(),
-				'updatedAt' : Joi.allow().required()
+				'isCompleted' : Joi.allow(),
+				'createdAt' : Joi.allow(),
+				'updatedAt' : Joi.allow()
 			}
 		}
 	}
@@ -55,8 +55,8 @@ module.exports = [{
 		'validate' : {
 			'payload' : {
 				'title' : Joi.string().required(),
-				'isCompleted' : Joi.boolean().required(),
-				'updatedAt' : Joi.allow().required()
+				'isCompleted' : Joi.boolean(),
+				'updatedAt' : Joi.allow()
 			}
 		}
 	}
