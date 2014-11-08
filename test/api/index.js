@@ -91,8 +91,7 @@ Lab.describe('`Routes` Test', function () {
 			'url' : '/v1/task/' + id,
 			'payload' : {
 				'title' : 'Eat banana',
-				'isCompleted' : true,
-				'updatedAt' : new Date()
+				'isCompleted' : true
 			}
 		};
 

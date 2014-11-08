@@ -28,10 +28,10 @@ module.exports = [{
 		'validate' : {
 			'payload' : {
 				'title' : Joi.string().required(),
-				'isCompleted' : Joi.allow(),
-				'isEditable' : Joi.allow(),
-				'createdAt' : Joi.allow(),
-				'updatedAt' : Joi.allow()
+				'isCompleted' : Joi.boolean().allow(),
+				'isEditable' : Joi.boolean().allow(),
+				'createdAt' : Joi.date().allow(),
+				'updatedAt' : Joi.date().allow()
 			}
 		}
 	}
@@ -56,9 +56,8 @@ module.exports = [{
 		},
 		'validate' : {
 			'payload' : {
-				'title' : Joi.string().required(),
-				'isCompleted' : Joi.boolean(),
-				'updatedAt' : Joi.allow()
+				'title' : Joi.string().allow(),
+				'isCompleted' : Joi.boolean().allow()
 			}
 		}
 	}
