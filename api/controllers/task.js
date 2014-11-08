@@ -13,6 +13,7 @@ module.exports = [{
 			var newTask = new Task({
 				'title' : request.payload.title,
 				'isCompleted' : false,
+				'isEditable' : false,
 				'createdAt' : new Date(),
 				'updatedAt' : new Date()
 			});
@@ -28,6 +29,7 @@ module.exports = [{
 			'payload' : {
 				'title' : Joi.string().required(),
 				'isCompleted' : Joi.allow(),
+				'isEditable' : Joi.allow(),
 				'createdAt' : Joi.allow(),
 				'updatedAt' : Joi.allow()
 			}
