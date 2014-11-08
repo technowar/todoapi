@@ -9,9 +9,6 @@ var TaskSchema = new Mongoose.Schema({
 	'isCompleted' : {
 		'type' : Boolean
 	},
-	'isEditable' : {
-		'type' : Boolean
-	},
 	'createdAt' : {
 		'type' : Date
 	},

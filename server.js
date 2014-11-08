@@ -21,7 +21,7 @@ Server.pack.register([{
 }], function (error) {
 	if (!error) {
 		Server.start(function () {
-			Server.log('info', 'Server running at: ' + Server.info.uri);
+			Server.log('info', 'Server running at ' + Server.info.uri);
 		});
 	}
 });

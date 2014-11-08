@@ -13,7 +13,6 @@ module.exports = [{
 			var newTask = new Task({
 				'title' : request.payload.title,
 				'isCompleted' : false,
-				'isEditable' : false,
 				'createdAt' : new Date(),
 				'updatedAt' : new Date()
 			});
@@ -28,10 +27,9 @@ module.exports = [{
 		'validate' : {
 			'payload' : {
 				'title' : Joi.string().required(),
-				'isCompleted' : Joi.allow(),
-				'isEditable' : Joi.allow(),
-				'createdAt' : Joi.allow(),
-				'updatedAt' : Joi.allow()
+				'isCompleted' : Joi.boolean().allow(),
+				'createdAt' : Joi.date().allow(),
+				'updatedAt' : Joi.date().allow()
 			}
 		}
 	}
@@ -56,9 +54,8 @@ module.exports = [{
 		},
 		'validate' : {
 			'payload' : {
-				'title' : Joi.string().required(),
-				'isCompleted' : Joi.boolean(),
-				'updatedAt' : Joi.allow()
+				'title' : Joi.string().allow(),
+				'isCompleted' : Joi.boolean().allow()
 			}
 		}
 	}

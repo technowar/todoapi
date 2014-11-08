@@ -32,7 +32,6 @@ Lab.describe('`Routes` Test', function () {
 			'_id' : id,
 			'title' : 'Eat banana',
 			'isCompleted' : false,
-			'isEditable' : false,
 			'createdAt' : new Date(),
 			'updatedAt' : new Date()
 		});
@@ -67,7 +66,6 @@ Lab.describe('`Routes` Test', function () {
 			'payload' : {
 				'title' : 'Take medicine',
 				'isCompleted' : false,
-				'isEditable' : false,
 				'createdAt' : new Date(),
 				'updatedAt' : new Date()
 			}
@@ -77,7 +75,6 @@ Lab.describe('`Routes` Test', function () {
 			Code.expect(response.statusCode).to.equal(200);
 			Code.expect(response.result.title).to.be.a.string().and.equal(options.payload.title);
 			Code.expect(response.result.isCompleted).to.be.a.boolean().and.equal(options.payload.isCompleted);
-			Code.expect(response.result.isEditable).to.be.a.boolean().and.equal(options.payload.isEditable);
 			Code.expect(response.result.createdAt).to.be.a.date();
 			Code.expect(response.result.updatedAt).to.be.a.date();
 
@@ -91,8 +88,7 @@ Lab.describe('`Routes` Test', function () {
 			'url' : '/v1/task/' + id,
 			'payload' : {
 				'title' : 'Eat banana',
-				'isCompleted' : true,
-				'updatedAt' : new Date()
+				'isCompleted' : true
 			}
 		};
 
