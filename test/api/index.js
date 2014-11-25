@@ -45,6 +45,16 @@ Lab.describe('`Routes` Test', function () {
 		done();
 	});
 
+	Lab.after(function (done) {
+		Mongoose.connection.collections['tasks'].drop(function (error) {
+			if (error) {
+				throw new Error(error);
+			}
+		});
+
+		done();
+	});
+
 	Lab.it('should return `Page not found` message', function (done) {
 		var options = {
 			'method' : '*',
@@ -149,15 +159,5 @@ Lab.describe('`Routes` Test', function () {
 
 			done();
 		});
-	});
-
-	Lab.after(function (done) {
-		Mongoose.connection.collections['tasks'].drop(function (error) {
-			if (error) {
-				throw new Error(error);
-			}
-		});
-
-		done();
 	});
 });
