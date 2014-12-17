@@ -20,9 +20,9 @@ Server.register([{
 	'register' : require('good'),
 	'options' : require('./log/')
 }, {
-	'register' : require('./api')
-}, {
 	'register' : require('lout')
+}, {
+	'register' : require('./api')
 }], function (error) {
 	if (!error) {
 		Server.start(function () {

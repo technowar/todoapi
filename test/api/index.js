@@ -25,35 +25,7 @@ Lab.describe('`Hello, world!` Test', function () {
 });
 
 Lab.describe('`Routes` Test', function () {
-	var id = Mongoose.Types.ObjectId('4edd40c86762e0fb12000003');
-
-	Lab.before(function (done) {
-		var newTask = new Task({
-			'_id' : id,
-			'title' : 'Eat banana',
-			'isCompleted' : false,
-			'createdAt' : new Date(),
-			'updatedAt' : new Date()
-		});
-
-		newTask.save(function (error) {
-			if (error) {
-				throw new Error(error);
-			}
-		});
-
-		done();
-	});
-
-	Lab.after(function (done) {
-		Mongoose.connection.collections['tasks'].drop(function (error) {
-			if (error) {
-				throw new Error(error);
-			}
-		});
-
-		done();
-	});
+	var id;
 
 	Lab.it('should return `Page not found` message', function (done) {
 		var options = {
@@ -82,11 +54,27 @@ Lab.describe('`Routes` Test', function () {
 		};
 
 		Server.inject(options, function (response) {
+			id = response.result._id;
+
 			Code.expect(response.statusCode).to.equal(200);
 			Code.expect(response.result.title).to.be.a.string().and.equal(options.payload.title);
 			Code.expect(response.result.isCompleted).to.be.a.boolean().and.equal(options.payload.isCompleted);
 			Code.expect(response.result.createdAt).to.be.a.date();
 			Code.expect(response.result.updatedAt).to.be.a.date();
+
+			done();
+		});
+	});
+
+	Lab.it('should return all `Tasks`', function (done) {
+		var options = {
+			'method' : 'GET',
+			'url' : '/v1/tasks'
+		};
+
+		Server.inject(options, function (response) {
+			Code.expect(response.statusCode).to.equal(200);
+			Code.expect(response.result).to.be.an.array();
 
 			done();
 		});
@@ -142,20 +130,6 @@ Lab.describe('`Routes` Test', function () {
 			Code.expect(response.result.isCompleted).to.be.a.boolean();
 			Code.expect(response.result.createdAt).to.be.a.date();
 			Code.expect(response.result.updatedAt).to.be.a.date();
-
-			done();
-		});
-	});
-
-	Lab.it('should return all `Tasks`', function (done) {
-		var options = {
-			'method' : 'GET',
-			'url' : '/v1/tasks'
-		};
-
-		Server.inject(options, function (response) {
-			Code.expect(response.statusCode).to.equal(200);
-			Code.expect(response.result).to.be.an.array();
 
 			done();
 		});
