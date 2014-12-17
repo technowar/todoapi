@@ -1,41 +1,26 @@
 'use strict';
 
-var Good = require('good');
-
-//Logs `request`, `log`, and `error` with `60 seconds` opsInterval
-
 module.exports = {
-	'opsInterval' : 60000,
+	'opsInterval' : 1000,
 	'logRequestHeaders' : true,
 	'logRequestPayload' : true,
 	'logResponsePayload' : true,
 	'reporters' : [{
-		'reporter' : Good.GoodConsole,
+		'reporter' : require('good-console'),
+		'format' : 'DD/MMM/YYYY:H:mm:ss Z',
 		'args' : [{
-			'events' : {
-				'request' : '*',
-				'log' : '*',
-				'error' : '*'
-			}
+			'log' : '*',
+			'response' : '*',
+			'error' : '*'
 		}]
-
-			/*****************************
-			 * GoodFile, uncomment later *
-			 *****************************/
-
-/******************************************
 	}, {
-		'reporter' : Good.GoodFile,
+		'reporter' : require('good-file'),
+		'format' : 'DD/MMM/YYYY',
+		'maxFileSize' : 1024 * 1024,
 		'args' : ['./log/logs/logs', {
-			'events' : {
-				'request' : '*',
-				'log' : '*',
-				'error' : '*'
-			},
-			'maxFileSize' : 1024 * 1024,
-			'format' : 'DD/MMM/YYYY:H:mm:ss Z'
+			'log' : '*',
+			'response' : '*',
+			'error' : '*'
 		}]
-******************************************/
-
 	}]
 };

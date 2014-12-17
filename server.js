@@ -3,21 +3,26 @@
 var Hapi = require('hapi');
 var Mongoose = require('mongoose');
 
-var Server = new Hapi.Server(3100, {
-	'cors' : true
+var Server = new Hapi.Server();
+
+Server.connection({
+	'port' : 3100,
+	'routes' : {
+		'cors' : true
+	}
 });
 
 Mongoose.connect('mongodb://localhost/tasks');
 
 require('./db');
 
-Server.pack.register([{
-	'plugin' : require('good'),
+Server.register([{
+	'register' : require('good'),
 	'options' : require('./log/')
 }, {
-	'plugin' : require('lout'),
+	'register' : require('./api')
 }, {
-	'plugin' : require('./api')
+	'register' : require('lout')
 }], function (error) {
 	if (!error) {
 		Server.start(function () {
