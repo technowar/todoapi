@@ -13,14 +13,14 @@ module.exports = {
 			'response' : '*',
 			'error' : '*'
 		}]
-	}, {
-		'reporter' : require('good-file'),
-		'format' : 'DD/MMM/YYYY',
-		'maxFileSize' : 1024 * 1024,
-		'args' : ['./log/logs/logs', {
-			'log' : '*',
-			'response' : '*',
-			'error' : '*'
-		}]
+	//}, {
+		//'reporter' : require('good-file'),
+		//'format' : 'DD/MMM/YYYY',
+		//'maxFileSize' : 1024 * 1024,
+		//'args' : ['./log/logs/logs', {
+			//'log' : '*',
+			//'response' : '*',
+			//'error' : '*'
+		//}]
 	}]
 };
