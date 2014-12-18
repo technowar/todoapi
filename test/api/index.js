@@ -44,7 +44,7 @@ Lab.describe('`Routes` Test', function () {
 	Lab.it('should add a single `Task`', function (done) {
 		var options = {
 			'method' : 'POST',
-			'url' : '/v1/task',
+			'url' : '/v1/tasks',
 			'payload' : {
 				'title' : 'Take medicine',
 				'isCompleted' : false,
@@ -83,7 +83,7 @@ Lab.describe('`Routes` Test', function () {
 	Lab.it('should modify a single `Task`', function (done) {
 		var options = {
 			'method' : 'PUT',
-			'url' : '/v1/task/' + id,
+			'url' : '/v1/tasks/' + id,
 			'payload' : {
 				'title' : 'Eat banana',
 				'isCompleted' : true
@@ -103,7 +103,7 @@ Lab.describe('`Routes` Test', function () {
 	Lab.it('should retrieve a single `Task`', function (done) {
 		var options = {
 			'method' : 'GET',
-			'url' : '/v1/task/' + id
+			'url' : '/v1/tasks/' + id
 		};
 
 		Server.inject(options, function (response) {
@@ -121,7 +121,7 @@ Lab.describe('`Routes` Test', function () {
 	Lab.it('should delete a single `Task`', function (done) {
 		var options = {
 			'method' : 'DELETE',
-			'url' : '/v1/task/' + id
+			'url' : '/v1/tasks/' + id
 		};
 
 		Server.inject(options, function (response) {

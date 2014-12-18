@@ -7,7 +7,7 @@ var Task = Mongoose.model('Task');
 
 module.exports = [{
 	'method' : 'POST',
-	'path' : '/v1/task',
+	'path' : '/v1/tasks',
 	'config' : {
 		'handler' : function (request, reply) {
 			var newTask = new Task({
@@ -35,7 +35,7 @@ module.exports = [{
 	}
 }, {
 	'method' : 'PUT',
-	'path' : '/v1/task/{id}',
+	'path' : '/v1/tasks/{id}',
 	'config' : {
 		'handler' : function (request, reply) {
 			Task.findOne({
@@ -61,7 +61,7 @@ module.exports = [{
 	}
 }, {
 	'method' : 'GET',
-	'path' : '/v1/task/{id}',
+	'path' : '/v1/tasks/{id}',
 	'config' : {
 		'handler' : function (request, reply) {
 			Task.find({
@@ -81,7 +81,7 @@ module.exports = [{
 	}
 }, {
 	'method' : 'DELETE',
-	'path' : '/v1/task/{id}',
+	'path' : '/v1/tasks/{id}',
 	'config' : {
 		'handler' : function (request, reply) {
 			Task.findByIdAndRemove(request.params.id, function (error, data) {
