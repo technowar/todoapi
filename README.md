@@ -20,7 +20,7 @@ RESTful API using [Hapi](http://hapijs.com), logs using [Good](https://github.co
 3. ~~Tests~~
 4. ~~Database~~
 5. ~~API Methods~~
-6. Front-end
+6. [~~Front-end~~](https://github.com/technowar/todolar)
 
 ## Others
 I used [Lout](https://github.com/hapijs/lout) to generate documentations.

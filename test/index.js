@@ -10,7 +10,7 @@ Lab.describe('`Plugins` Test', function () {
 	Lab.it('should have `Good` plugin', function (done) {
 		Server.register({
 			'register' : require('good'),
-			'options' : require('../log/')
+			'options' : require('../utils/log/')
 		}, function (error) {
 			Code.expect(error).to.not.exist;
 

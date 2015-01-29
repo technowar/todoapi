@@ -1,7 +1,7 @@
 'use strict';
 
-var Root = require('./controllers/root');
-var Task = require('./controllers/task');
+var Root = require('./routes/root');
+var Task = require('./routes/task');
 
 exports.register = function (plugin, options, next) {
 	plugin.route(Root);

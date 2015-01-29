@@ -17,7 +17,7 @@ module.exports = {
 		//'reporter' : require('good-file'),
 		//'format' : 'DD/MMM/YYYY',
 		//'maxFileSize' : 1024 * 1024,
-		//'args' : ['./log/logs/logs', {
+		//'args' : ['./utils/log/logs/logs', {
 			//'log' : '*',
 			//'response' : '*',
 			//'error' : '*'

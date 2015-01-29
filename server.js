@@ -14,11 +14,11 @@ Server.connection({
 
 Mongoose.connect('mongodb://localhost/tasks');
 
-require('./db');
+require('./api/models/tasks');
 
 Server.register([{
 	'register' : require('good'),
-	'options' : require('./log/')
+	'options' : require('./utils/log/')
 }, {
 	'register' : require('lout')
 }, {
